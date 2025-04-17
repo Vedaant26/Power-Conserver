@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blueprint Analyzer</title>
+    <style>
+        body { font-family: Arial; padding: 20px; text-align: center; background: #f3f3f3; }
+        .box { background: white; padding: 20px; border-radius: 10px; display: inline-block; }
+        img { max-width: 100%; margin-top: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Upload Your Blueprint</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="blueprint" accept="image/*" required>
+            <br><br>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if uploaded %}
+            <h2>Detected Areas</h2>
+            <img src="{{ url_for('uploaded_file', filename=output_img) }}">
+        {% endif %}
+    </div>
+</body>
+</html>
